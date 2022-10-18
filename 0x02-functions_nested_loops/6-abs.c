@@ -5,7 +5,7 @@
  * Return: absolute value.
  */
 
-int_abs(int i)
+int _abs(int i)
 {
 	int k = i;
 	int absvalue;
