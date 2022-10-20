@@ -16,8 +16,8 @@ int main(void)
 	{
 		if (boolean)
 		{
-			fn = n1 + n21;
-			printf(", %ld". fn);
+			fn = n1 + n22;
+			printf(", %ld", fn);
 			n1 = n2;
 			n2 = fn;
 		}
