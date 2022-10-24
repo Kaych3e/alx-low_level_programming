@@ -1,4 +1,4 @@
-#include "main_h"
+#include "main.h"
 /**
  * reset_to_98 - Resets the variable value to 98
  * @n: Variable to be reset
