@@ -1,1 +1,1 @@
-Variables if, else, while in C
+Static libraries
