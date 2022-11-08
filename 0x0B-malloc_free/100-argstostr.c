@@ -3,41 +3,44 @@
 
 /**
   *argstostr - concatenates all the arguments of your program
-  *@ac: width of the grid
-  *@av: heigh of grid
+  *@ac: argument count
+  *@av: argument vector
   *Return: each argument on a new line
   */
 
 char *argstostr(int ac, char **av)
 {
-	char *str;
-	int count = 0, a = 0, b = 0, c = 0;
+	char *aout;
+	int c, i, j, ia;
 
-	if (ac == 0 || av == NULL)
-		return (NULL);
-	while (a < ac)
-	{
-		b = 0;
-		while (av[a][b] != '\0')
+		if (ac == 0)
+			return (NULL);
+		for (c = i = 0; i < ac; i++)
 		{
-			count++;
-			b++;
+		if (av[i] == NULL)
+			return (NULL);
+		for (j = 0; av[i][j] != '\0'; j++)
+			c++;
+		c++;
 		}
-		a++;
-		count += (ac + 1);
-		str = malloc(sizeof(char) * count);
-		if (str == NULL)
+		aout = malloc((c + 1) * sizeof(char));
+		if (aout == NULL)
 		{
+			free(aout);
 			return (NULL);
 		}
-		for (a = 0; a < ac; a++)
+		for (i = j = ia = 0; ia < c; j++, ia++)
 		{
-			for (b = 0; av[a][b] != '\0'; b++)
-				str[c] = av[a][b];
-			c++;
+			if (av[i][j] == '\0')
+			{
+				aout[ia] = '\n';
+				i++;
+				ia++;
+				j = 0;
+			}
+			if (ia < c - 1)
+				aout[ia] = av[i][j];
 		}
-		str[c] = '\n';
-		c++;
-	}
-	return (str);
+		aout[ia] = '\0';
+		return (aout);
 }
