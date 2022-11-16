@@ -1,0 +1,15 @@
+#include "main.h"
+#include <stdio.h>
+
+/**
+  *print_name - function that prints a name
+  *@name: name of person
+  *@f: function pointer
+  *Return: void
+  */
+
+void print_name(char *name, void (*f)(char *))
+{
+	printf("My name is %s\n", name);
+	f(name);
+}
