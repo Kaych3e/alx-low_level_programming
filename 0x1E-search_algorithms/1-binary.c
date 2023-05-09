@@ -13,10 +13,15 @@
 
 void print_array(int *array, size_t low, size_t high)
 {
+	char *delimiter = NULL;
+
 	printf("Searching in array: ");
 	for (; low <= high; low++)
 	{
+		if (delimiter)
+			printf("%s", delimiter);
 		printf("%d", array[low]);
+		delimiter = ", ";
 	}
 	printf("\n");
 }
@@ -28,6 +33,7 @@ int binary_search(int *array, size_t size, int value)
 	if (array == NULL)
 		return (-1);
 
+	/* printing searched array at the beginning */
 	print_array(array, low, high);
 
 	while (low != high)
@@ -39,7 +45,10 @@ int binary_search(int *array, size_t size, int value)
 			high = middle - 1;
 		else
 			low = middle + 1;
+	/* printing when subarray is searched */
+		print_array(array, low, high);
 	}
+	/* in situations that have edge cases */
 	if (array[low] == value)
 		return (low);
 	return (-1);
