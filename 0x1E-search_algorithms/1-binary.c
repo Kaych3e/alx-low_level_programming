@@ -11,12 +11,24 @@
  * Return: Always EXIT_SUCCESS
  */
 
+void print_array(int *array, size_t low, size_t high)
+{
+	printf("Searching in array: ");
+	for (; low <= high; low++)
+	{
+		printf("%d", array[low]);
+	}
+	printf("\n");
+}
+
 int binary_search(int *array, size_t size, int value)
 {
 	size_t low = 0, middle, high = size - 1;
 
 	if (array == NULL)
 		return (-1);
+
+	print_array(array, low, high);
 
 	while (low != high)
 	{
